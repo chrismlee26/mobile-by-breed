@@ -1,10 +1,11 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-function Item({ title }) {
+function Item(props) {
+  const { name, index } = props
   return (
     <View>
-      <Text style={styles.text}>{title}</Text>
+      <Text style={styles.text}>{index}: {name}</Text>
     </View>
   );
 }
@@ -13,10 +14,6 @@ const styles = StyleSheet.create({
   text: {
     fontFamily: 'AvenirNext-Bold',
     color: 'white',
-    padding: 4,
-    borderWidth: .5,
-    borderColor: 'white',
-    alignSelf: 'stretch',
     width: '100%',
     fontWeight: 'bold'
 
