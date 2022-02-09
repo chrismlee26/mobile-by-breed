@@ -5,7 +5,7 @@ function Item(props) {
   const { name, index } = props
   return (
     <View>
-      <Text key={index} style={styles.text}>{index}: {name}</Text>
+      <Text style={styles.text}>{index}: {name}</Text>
     </View>
   );
 }

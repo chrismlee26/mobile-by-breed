@@ -8,15 +8,19 @@ import { cats } from './breeds'
 export default function App() {
   return (
     <View style={styles.container}>
-      <StatusBar style="auto" />
+      <StatusBar
+        backgroundColor="#5E8D48"
+        barStyle="light-content"
+      />
       <FlatList
+        data={cats}
         ItemSeparatorComponent={(props) => {
           return (
-            <View style={{ height: 1, backgroundColor: 'gray' }} />
+            <View style={styles.separator} />
           );
         }}
-        data={cats}
-        key={cats.index}
+        keyExtractor={(item) => `${item.breed}${item.index}`}
+
         renderItem={({ item, index }) => {
           return <Item name={item.breed} index={index} key={index} />
         }}
@@ -33,8 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   separator: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: 'red'
+    height: 3,
+    backgroundColor: 'gray',
   },
 });
