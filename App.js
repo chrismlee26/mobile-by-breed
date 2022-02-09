@@ -10,7 +10,13 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <FlatList
+        ItemSeparatorComponent={(props) => {
+          return (
+            <View style={{ height: 1, backgroundColor: 'gray' }} />
+          );
+        }}
         data={cats}
+        key={cats.index}
         renderItem={({ item, index }) => {
           return <Item name={item.breed} index={index} key={index} />
         }}
@@ -25,5 +31,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#222',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  separator: {
+    flex: 1,
+    borderWidth: 1,
+    borderColor: 'red'
   },
 });
