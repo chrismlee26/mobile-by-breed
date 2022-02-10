@@ -8,13 +8,18 @@ function Item(props) {
 
   return (
     <View>
-      <Text style={styles.text}>{index}: {breed}</Text>
+      <Text style={styles.title}>{index}: {breed}</Text>
+      {
+        keys.map(key =>
+          <Text key={keys.index} style={styles.itemText}>{key}</Text>
+        )
+      }
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  text: {
+  title: {
     fontFamily: 'AvenirNext-Bold',
     color: 'white',
     width: '100%',
@@ -22,8 +27,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     padding: 10,
     margin: 1,
-
-
+  },
+  itemText: {
+    fontFamily: 'Helvetica',
+    color: 'white',
+    paddingLeft: 10,
   }
 })
 

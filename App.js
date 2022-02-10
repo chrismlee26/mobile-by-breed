@@ -41,5 +41,6 @@ const styles = StyleSheet.create({
   separator: {
     height: 3,
     backgroundColor: 'gray',
+    margin: 5,
   },
 });
