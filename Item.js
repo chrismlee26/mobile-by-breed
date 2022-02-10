@@ -4,14 +4,14 @@ import { View, Text, StyleSheet } from 'react-native'
 function Item(props) {
   const { data, index } = props
   const { breed } = data
-  const keys = Object.keys(data)
+  const keys = Object.keys(data).filter(key => key !== 'breed')
 
   return (
     <View>
       <Text style={styles.title}>{index}: {breed}</Text>
       {
         keys.map(key =>
-          <Text key={keys.index} style={styles.itemText}>{key}</Text>
+          <Text key={keys.index} style={styles.itemText}>{key} {data[key]}</Text>
         )
       }
     </View>
@@ -21,7 +21,7 @@ function Item(props) {
 const styles = StyleSheet.create({
   title: {
     fontFamily: 'AvenirNext-Bold',
-    color: 'white',
+    color: 'cornflowerblue',
     width: '100%',
     fontWeight: 'bold',
     fontSize: 18,

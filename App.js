@@ -10,6 +10,7 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <View style={styles.itemContainer}>
         <StatusBar style="light" />
+        <Text style={styles.title}>MittensList 🐈</Text>
         <FlatList
           data={cats}
           ItemSeparatorComponent={(props) => {
@@ -41,6 +42,15 @@ const styles = StyleSheet.create({
   separator: {
     height: 3,
     backgroundColor: 'gray',
-    margin: 5,
+    marginVertical: 10,
   },
+  title: {
+    fontFamily: 'AvenirNext-Bold',
+    color: 'moccasin',
+    width: '100%',
+    fontWeight: 'bold',
+    fontSize: 36,
+    textAlign: 'center',
+    marginTop: 30,
+  }
 });
