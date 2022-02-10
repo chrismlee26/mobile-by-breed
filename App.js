@@ -7,25 +7,29 @@ import { cats } from './breeds'
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <StatusBar
-        backgroundColor="#5E8D48"
-        barStyle="light-content"
-      />
-      <FlatList
-        data={cats}
-        ItemSeparatorComponent={(props) => {
-          return (
-            <View style={styles.separator} />
-          );
-        }}
-        keyExtractor={(item) => `${item.breed}${item.index}`}
+    <SafeAreaView style={styles.container}>
+      <View style={styles.itemContainer}>
+        <StatusBar
+          backgroundColor="black"
+          color="white"
+          StatusBarStyle="light-content"
+          barStyle="light-content"
+        />
+        <FlatList
+          data={cats}
+          ItemSeparatorComponent={(props) => {
+            return (
+              <View style={styles.separator} />
+            );
+          }}
+          keyExtractor={item => `${item.index}${item.breed}`}
 
-        renderItem={({ item, index }) => {
-          return <Item name={item.breed} index={index} key={index} />
-        }}
-      />
-    </View>
+          renderItem={({ item, index }) => {
+            return <Item key={index} index={index} data={item} />
+          }}
+        />
+      </View>
+    </SafeAreaView>
   );
 }
 
@@ -35,6 +39,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#222',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  itemContainer: {
+    width: '100%',
   },
   separator: {
     height: 3,
