@@ -9,12 +9,7 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.itemContainer}>
-        <StatusBar
-          backgroundColor="black"
-          color="white"
-          StatusBarStyle="light-content"
-          barStyle="light-content"
-        />
+        <StatusBar style="light" />
         <FlatList
           data={cats}
           ItemSeparatorComponent={(props) => {
