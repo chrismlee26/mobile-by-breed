@@ -9,11 +9,16 @@ function Item(props) {
   return (
     <View>
       <Text style={styles.title}>{index}: {breed}</Text>
-      {
-        keys.map(key =>
-          <Text key={keys.index} style={styles.itemText}>{key} {data[key]}</Text>
-        )
-      }
+      <View>
+        {
+          keys.map(key =>
+            <View style={styles.itemContainer}>
+              <Text key={keys.index} style={styles.itemText}>{key}</Text>
+              <Text key={keys.index} style={styles.itemText}>{data[key]}</Text>
+            </View>
+          )
+        }
+      </View>
     </View>
   );
 }
@@ -28,11 +33,15 @@ const styles = StyleSheet.create({
     padding: 10,
     margin: 1,
   },
+  itemContainer: {
+    paddingHorizontal: 10,
+    justifyContent: 'space-between',
+    flexDirection: "row",
+  },
   itemText: {
     fontFamily: 'Helvetica',
     color: 'white',
-    paddingLeft: 10,
-  }
+  },
 })
 
 
