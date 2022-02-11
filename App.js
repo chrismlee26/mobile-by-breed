@@ -1,25 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ScrollView, FlatList, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, View, FlatList, SafeAreaView, TextInput } from 'react-native';
 
 import Item from './Item'
 
 import { cats } from './breeds'
 
 export default function App() {
+  const [search, setSearch] = useState('')
+
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar style="light" />
       <View style={styles.itemContainer}>
-        <StatusBar style="light" />
         <Text style={styles.title}>MittensList 🐈</Text>
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search"
+          onChangeText={setSearch}
+          value={search}
+          placeholderTextColor={'white'}
+          opacity={0.6}
+        />
         <FlatList
-          data={cats}
+          data={cats.filter(item => item.breed.includes(search))}
           ItemSeparatorComponent={(props) => {
             return (
               <View style={styles.separator} />
             );
           }}
           keyExtractor={item => `${item.index}${item.breed}`}
-
           renderItem={({ item, index }) => {
             return <Item key={index} index={index} data={item} />
           }}
@@ -52,5 +62,13 @@ const styles = StyleSheet.create({
     fontSize: 36,
     textAlign: 'center',
     marginTop: 30,
+  },
+  searchBar: {
+    fontFamily: 'Helvetica',
+    fontSize: 14,
+    color: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
   }
 });

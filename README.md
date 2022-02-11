@@ -25,8 +25,8 @@ Select `iOs` or `Android` or `scan the QR code` with the "Expo Go" App on your d
 
 - [x] Displaying all Content from cat-and-dog-breeds.json
 - [x] Darkmode by default
-- [ ] Move components to SafeAreaView
-- [ ]
-- [ ] Visualization for animal ratings
+- [x] Move components to SafeAreaView
+- [x] Average ratings for animals
+- [x] Visualization for animal ratings
+- [x] Search bar
 - [ ] Segmented control to display doge data
-- [ ] Search bar
