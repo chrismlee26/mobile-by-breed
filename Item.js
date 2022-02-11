@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StyleSheet } from 'react-native'
+import Feature from './Feature'
 
 function Item(props) {
   const { data, index } = props
@@ -9,16 +10,7 @@ function Item(props) {
   return (
     <View>
       <Text style={styles.title}>{index}: {breed}</Text>
-      <View>
-        {
-          keys.map(key =>
-            <View style={styles.itemContainer}>
-              <Text key={keys.index} style={styles.itemText}>{key}</Text>
-              <Text key={keys.index} style={styles.itemText}>{data[key]}</Text>
-            </View>
-          )
-        }
-      </View>
+      {keys.map(key => <Feature name={key} value={data[key]} />)}
     </View>
   );
 }
@@ -32,15 +24,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     padding: 10,
     margin: 1,
-  },
-  itemContainer: {
-    paddingHorizontal: 10,
-    justifyContent: 'space-between',
-    flexDirection: "row",
-  },
-  itemText: {
-    fontFamily: 'Helvetica',
-    color: 'white',
   },
 })
 
